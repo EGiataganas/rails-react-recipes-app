@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NonEditableRecipe from './NonEditableRecipe';
+import Recipe from './Recipe';
 
 const RecipeList = ({ recipes }) => (
   <div className="columns">
     {
       recipes.map(recipe =>
-        <NonEditableRecipe
+        <Recipe
           key={recipe.id}
           recipe={recipe}
         />
