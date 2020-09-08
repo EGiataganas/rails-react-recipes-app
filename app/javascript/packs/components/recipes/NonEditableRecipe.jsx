@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const NonEditableRecipe = ({ recipe }) => {
   let imageSrc = recipe.image !== null ?
-    recipe.image : "https://bulma.io/images/placeholders/1280x960.png";
+    recipe.image.url : "https://bulma.io/images/placeholders/1280x960.png";
 
   return (
     <React.Fragment>
