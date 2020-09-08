@@ -1,15 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { updateRecipe } from '../../api/recipeApi';
 import EditableRecipe from './EditableRecipe';
 import NonEditableRecipe from './NonEditableRecipe';
 import '../../styles/recipe';
 
 class RecipeToggle extends PureComponent {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
+  }
+
   constructor(props) {
     super(props);
 
-    this.state = { isEditable: false };
+    this.state = this.initialState;
   }
+
+  initialState = { isEditable: false }
 
   toogle = () => {
     this.setState(currentState => {
@@ -17,24 +24,32 @@ class RecipeToggle extends PureComponent {
     });
   }
 
+  submit = (formData, recipe) => {
+    this.props.onSubmit({formData, recipe},
+      () => this.toogle()
+    );
+  }
+
   render() {
     return this.props.children({
       isEditable: this.state.isEditable,
-      toogle: this.toogle
+      toogle: this.toogle,
+      submit: this.submit
     })
   }
 }
 
-const Recipe = ({ recipe }) => (
-  <RecipeToggle>
+const Recipe = ({ recipe, update }) => (
+  <RecipeToggle onSubmit={update} >
     {
-      ({isEditable, toogle}) => (
+      ({isEditable, toogle, submit}) => (
         <div className="column is-one-third">
           <div className="card">
             {isEditable
               ?
               <EditableRecipe
                 recipe={recipe}
+                submit={submit}
                 toogle={toogle} />
               :
               <NonEditableRecipe recipe={recipe} />

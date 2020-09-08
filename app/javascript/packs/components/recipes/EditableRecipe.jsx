@@ -8,6 +8,8 @@ class EditableRecipe extends PureComponent {
     this.state = {
       editableRecipe: this.props.recipe,
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputChange = ({ target }) => {
@@ -21,7 +23,11 @@ class EditableRecipe extends PureComponent {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('Submitted!');
+
+    const { editableRecipe } = this.state;
+    const formRecipeData = new FormData(event.target);
+
+    this.props.submit(formRecipeData, editableRecipe);
   }
 
   render() {
