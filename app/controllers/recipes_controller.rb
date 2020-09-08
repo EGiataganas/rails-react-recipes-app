@@ -3,12 +3,12 @@ class RecipesController < ApplicationController
 
   # GET /api/recipes
   def index
-    render json: Recipe.all
+    render json: Recipe.all.with_attached_image
   end
 
   # PUT /api/recipes/1
   def update
-    if @recipe.update(recipe_params)
+    if UpdateRecipeService.new(@recipe, recipe_params).call
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
@@ -23,6 +23,6 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.permit(:title, :description, :instruction)
+      params.permit(:title, :description, :instruction, :image)
     end
 end
