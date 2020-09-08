@@ -2713,6 +2713,11 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dropzone@^5.4.0:
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.7.2.tgz#91bee1572dda515d40901da304bc79dddf309b4c"
+  integrity sha512-m217bJHtf0J1IiKn4Tv6mnu1h5QvQNBnKZ39gma7hzGQhIZMxYq1vYEHs4AVd4ThFwmALys+52NAOD4zdLTG4w==
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
@@ -3012,7 +3017,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@~3.0.2:
+extend@^3.0.1, extend@~3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
@@ -6145,6 +6150,14 @@ react-dom@^16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-dropzone-component@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-dropzone-component/-/react-dropzone-component-3.2.0.tgz#8ad4cdce342084fb87302ddec6651caa49d8b103"
+  integrity sha512-QwopN2GgzHCKcMyJvBZuYCeqnU9F/Uiq1hD94/JmFdLmkzU1rw7SbNjLNUad864YoAEvcx93uHUItv0NUwlTxw==
+  dependencies:
+    dropzone "^5.4.0"
+    extend "^3.0.1"
 
 react-is@^16.8.1:
   version "16.13.1"
